@@ -1,0 +1,42 @@
+<div class="header">
+  <h1>Shopping Cart</h1>
+  <button class="checkout-button" (click)="onCheckout()">Checkout</button>
+</div>
+
+<table class="shopping-cart-table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.category }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }} Ron</td>
+      <td>
+        <form (ngSubmit)="onUpdateQuantity(product.id, quantity.value)">
+          <input
+            type="number"
+            name="quantity"
+            #quantity="ngModel"
+            ngModel="0"
+            min="0"
+            max="50"
+          />
+          <button type="submit">Update</button>
+        </form>
+      </td>
+      <td>
+        <app-icon-button
+          [iconType]="'Remove'"
+          (clickEvent)="onRemoveButtonClick(product)"
+        ></app-icon-button>
+      </td>
+    </tr>
+  </tbody>
+</table>

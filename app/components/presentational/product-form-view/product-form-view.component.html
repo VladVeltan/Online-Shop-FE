@@ -1,0 +1,49 @@
+<form *ngIf="productForm" [formGroup]="productForm">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name"  />
+      <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+        <span *ngIf="productForm.get('name')?.errors?.['required']">Name is required.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="category">Category</label>
+      <input type="text" id="category" formControlName="category"  />
+      <div *ngIf="productForm.get('category')?.invalid && (productForm.get('category')?.dirty || productForm.get('category')?.touched)">
+        <span *ngIf="productForm.get('category')?.errors?.['required']">Category is required.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="price">Price</label>
+      <input type="number" id="price" formControlName="price" value=1 min=1 />
+      <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)">
+        <span *ngIf="productForm.get('price')?.errors?.['required']">Price is required.</span>
+        <span *ngIf="productForm.get('price')?.errors?.['min']">Price must be a positive number.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="image">Image URL</label>
+      <input type="text" id="image" formControlName="image"  />
+      <div *ngIf="productForm.get('image')?.invalid && (productForm.get('image')?.dirty || productForm.get('image')?.touched)">
+        <span *ngIf="productForm.get('image')?.errors?.['required']">Image URL is required.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Description</label>
+      <input type="text" id="description" formControlName="description" />
+      <div *ngIf="productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)">
+        <span *ngIf="productForm.get('description')?.errors?.['required']">Description is required.</span>
+      </div>
+    </div>
+  
+    <div class="buttons-container">
+      <button type="button" class="cancel-button" (click)="onSumbit.emit('cancel')">Cancel</button>
+      <button type="button" [disabled] = "!productForm.valid" class = "save-button" (click)="onSumbit.emit('save')">Save</button>
+    </div>
+
+  </form>
+  

@@ -1,0 +1,35 @@
+<body class="body">
+  <div class="top-bar">
+    <h1>Products</h1>
+    <div class="button-container">
+      <button routerLink="/add" class="add-button" *ngIf="userRoles?.includes('admin')">Add</button>
+      <button routerLink="/cart" class="to-cart-button" *ngIf="userRoles?.includes('user')">To cart</button>
+      <button routerLink="/login" class="logout" (click)="callLogout" *ngIf="userRoles?.includes('user')">Logout</button>
+    </div>
+  </div>
+
+  <table class="products-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>See details</th>
+        <th class="arrow-button-cell"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.category }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }} Ron</td>
+        <td>
+          <button [routerLink]="['/products', product.id]" class="see-details">See Details</button>
+        </td>
+        <td class="arrow-button-cell">
+          <button class="arrow-button" (click)="onAddToCart(product)"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>

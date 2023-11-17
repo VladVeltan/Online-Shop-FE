@@ -1,0 +1,65 @@
+.wrapper {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.title-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.buttons button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #2196f3;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    background-color: #3475c0;
+  }
+}
+
+.delete-button {
+  background-color: #ff5a5a;
+  color: #000000;
+  font-size: 20px;
+  margin-right: 50px;
+  &:hover {
+    background-color: #ec3030;
+  }
+}
+
+.details {
+  display: flex;
+  padding: 20px;
+}
+
+.left-details {
+  flex: 1;
+  padding: 10px;
+  font-size: 18px; /* Increase font size for details */
+}
+
+.name,
+.category,
+.price,
+.description {
+  font-size: 18px; /* Increase font size for name, category, price, and description */
+}
+
+.image img {
+  max-width: 100%;
+  max-height: 200px;
+}
+
+.footer {
+  padding: 20px;
+  font-size: 18px; /* Increase font size for description in the footer */
+}

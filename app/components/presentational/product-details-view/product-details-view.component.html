@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="title-flex" *ngIf="product">
+    <h1>Product: {{ product.name }}</h1>
+    <div class="buttons" *ngIf="userRoles?.includes('admin')">
+      <button [routerLink]="['/edit',product.id]" class="edit-button" >Edit</button>
+      <button [routerLink]="['']" (click)="onDeleteProduct(product.id)"  class="delete-button">Delete</button>
+    </div>
+  </div>
+
+  <div class="details" *ngIf="product">
+    <div class="left-details">
+      <h2>Details</h2>
+      <p class="name"><strong>Name:</strong> {{ product.name }}</p>
+      <p class="category"><strong>Category:</strong> {{ product.category }}</p>
+      <p class="price"><strong>Price:</strong> {{ product.price }} Ron</p>
+    </div>
+
+    <div class="image">
+      <img 
+        src="{{product.image}}"
+      />
+    </div>
+  </div>
+
+  <div class="footer" *ngIf="product">
+    <h2>Description</h2>
+    <p >{{ product.description }}</p>
+  </div>
+</div>
